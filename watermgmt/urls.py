@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.urls import path
 from rest_framework import routers
 from django.conf.urls import include
-from watermgmtapi.views import check_user
+from watermgmtapi.views import UserView, check_user
 
 router = routers.DefaultRouter(trailing_slash=False)
+
+router.register(r'users', UserView, 'user')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
