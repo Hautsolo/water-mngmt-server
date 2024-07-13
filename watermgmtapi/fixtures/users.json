@@ -1,0 +1,11 @@
+[
+  {
+      "model": "watermgmtapi.user",
+      "pk": 1,
+      "fields": {
+          "name": 1,
+          "bio": "Let it rip",
+          "uid": 1
+      }
+  }
+]
