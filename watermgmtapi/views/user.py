@@ -60,4 +60,4 @@ class UserSerializer(serializers.ModelSerializer):
     """JSON serializer for users"""
     class Meta:
         model = User
-        fields = ("id", "name" "bio", "uid")
+        fields = ("id", "name", "bio", "uid")

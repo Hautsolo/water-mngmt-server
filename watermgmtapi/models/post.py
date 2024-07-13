@@ -14,7 +14,7 @@ class Post(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     likes = models.ManyToManyField(User, related_name='posts')
-    tags = models.ForeignKey(Tag, on_delete=models.CASCADE)
+    tags = models.ManyToManyField(Tag, through='PostTag', related_name="posts")
     created_on = models.DateTimeField(default=timezone.now)
 
     @property

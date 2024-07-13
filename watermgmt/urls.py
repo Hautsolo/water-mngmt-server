@@ -22,7 +22,7 @@ from watermgmtapi.views import UserView, check_user, CategoryView, CommentView, 
 router = routers.DefaultRouter(trailing_slash=False)
 
 router.register(r'users', UserView, 'user')
-router.register(r'categorys', CategoryView, 'category')
+router.register(r'categories', CategoryView, 'category')
 router.register(r'comments', CommentView, 'comment')
 # router.register(r'likes', LikeView, 'like')
 # router.register(r'posttags', PostTagView, 'posttag')

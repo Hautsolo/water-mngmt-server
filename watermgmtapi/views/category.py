@@ -28,7 +28,7 @@ class CategoryView(ViewSet):
             Response -- JSON serialized list of categorys
         """
         categorys = Category.objects.all()
-        serializer = CategorySerializer(categorys, many=True)
+        serializer = CategorySerializer(categorys, many=True, context={'request': request})
         return Response(serializer.data)
 
     def create(self, request):
