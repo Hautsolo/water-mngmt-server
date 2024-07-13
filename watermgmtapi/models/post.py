@@ -3,6 +3,7 @@ from .user import User
 from .category import Category
 from .like import Like
 from .tag import Tag
+from django.utils import timezone
 
 
 class Post(models.Model):
@@ -14,3 +15,4 @@ class Post(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     like = models.ForeignKey(Like, on_delete=models.CASCADE)
     tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
+    created_on = models.DateTimeField(default=timezone.now)

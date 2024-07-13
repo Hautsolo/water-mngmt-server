@@ -27,8 +27,8 @@ class TagView(ViewSet):
         Returns:
             Response -- JSON serialized list of tags
         """
-        tag = Tag.objects.all()
-        serializer = TagSerializer(tag, many=True)
+        tags = Tag.objects.all()
+        serializer = TagSerializer(tags, many=True)
         return Response(serializer.data)
 
     def create(self, request):
@@ -40,6 +40,7 @@ class TagView(ViewSet):
         tag = Tag.objects.create(
             label=request.data["label"],
         )
+        tag.save()
         serializer = TagSerializer(tag)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
