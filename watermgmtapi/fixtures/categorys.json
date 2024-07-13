@@ -1,0 +1,9 @@
+[
+  {
+      "model": "watermgmtapi.category",
+      "pk": 1,
+      "fields": {
+          "label": "home"
+      }
+  }
+]

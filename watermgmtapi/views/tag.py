@@ -9,10 +9,10 @@ class TagView(ViewSet):
     """Level up tags view"""
 
     def retrieve(self, request, pk):
-        """Handle GET requests for single game type
+        """Handle GET requests for single tag
 
         Returns:
-            Response -- JSON serialized game type
+            Response -- JSON serialized tag
         """
         try:
             tag = Tag.objects.get(pk=pk)
@@ -44,7 +44,7 @@ class TagView(ViewSet):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
     def update(self, request, pk):
-        """Handle PUT requests for a game type
+        """Handle PUT requests for a tag
 
         Returns:
             Response -- Empty body with 204 status code
@@ -58,7 +58,7 @@ class TagView(ViewSet):
             return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
 
     def destroy(self, request, pk):
-        """Handle DELETE requests for a game type
+        """Handle DELETE requests for a tag
 
         Returns:
             Response -- Empty body with 204 status code

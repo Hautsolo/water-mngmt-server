@@ -1,0 +1,9 @@
+[
+  {
+      "model": "watermgmtapi.comment",
+      "pk": 1,
+      "fields": {
+          "label": 1
+      }
+  }
+]
