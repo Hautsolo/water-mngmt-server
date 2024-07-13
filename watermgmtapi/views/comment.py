@@ -6,7 +6,7 @@ from watermgmtapi.models import Comment, User
 
 
 class CommentView(ViewSet):
-    """Level up comments view"""
+    """Water-mgmt comments view"""
 
     def retrieve(self, request, pk):
         """Handle GET requests for single comment

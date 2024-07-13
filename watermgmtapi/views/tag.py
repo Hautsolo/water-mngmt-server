@@ -6,7 +6,7 @@ from watermgmtapi.models import Tag
 
 
 class TagView(ViewSet):
-    """Level up tags view"""
+    """Water-mgmt tags view"""
 
     def retrieve(self, request, pk):
         """Handle GET requests for single tag
