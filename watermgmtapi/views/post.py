@@ -2,7 +2,7 @@ from django.http import HttpResponseServerError
 from rest_framework.response import Response
 from rest_framework.viewsets import ViewSet
 from rest_framework import serializers, status
-from watermgmtapi.models import User, Post, Category, Comment, PostTag, Like
+from watermgmtapi.models import User, Post, PostCategory, Comment, PostTag, Like
 from rest_framework.decorators import action
 from django.db.models import Count
 
@@ -26,7 +26,7 @@ class PostView(ViewSet):
     
     def create(self, request):
         user = User.objects.get(pk = request.data["userId"])
-        category = Category.objects.get(pk = request.data["categoryid"])
+        category = PostCategory.objects.get(pk = request.data["categoryid"])
         like = Like.objects.get(pk = request.data["likeid"])
         tag = PostTag.objects.get(pk = request.data["tagid"])
         

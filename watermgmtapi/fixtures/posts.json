@@ -1,0 +1,28 @@
+[
+    {
+        "model": "watermgmtapi.post",
+        "pk": 1,
+        "fields": {
+          "title": "Hi",
+          "image_url": "test",
+          "description": "What's happening?",
+          "user_id": 1, 
+          "category": 1,
+          "like":"True",
+          "tag":"product"
+        }
+    },
+    {
+        "model": "watermgmtapi.post",
+        "pk": 2,
+        "fields": {
+          "title": "Howdy",
+          "image_url": "test",
+          "description": "This is great!",
+          "user_id": 1,
+          "category": 2,
+          "like":"True",
+          "tag":"product"
+        }
+    }
+  ]
