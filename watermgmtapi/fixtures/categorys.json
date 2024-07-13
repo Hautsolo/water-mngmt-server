@@ -3,7 +3,24 @@
       "model": "watermgmtapi.category",
       "pk": 1,
       "fields": {
-          "label": "home"
+          "label": "Personal"
       }
-  }
+  },
+
+  {
+      "model": "watermgmtapi.category",
+      "pk": 2,
+      "fields": {
+          "label": "Industrial"
+      }
+  },
+
+  {
+    "model": "watermgmtapi.category",
+    "pk": 3,
+    "fields": {
+        "label": "Municipal"
+    }
+}
+
 ]
