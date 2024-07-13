@@ -56,8 +56,8 @@ class UserView(ViewSet):
         except User.DoesNotExist as ex:
             return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
 
-    class UserSerializer(serializers.ModelSerializer):
-        """JSON serializer for users"""
-        class Meta:
-            model = User
-            fields = ("id", "name" "bio", "uid")
+class UserSerializer(serializers.ModelSerializer):
+    """JSON serializer for users"""
+    class Meta:
+        model = User
+        fields = ("id", "name" "bio", "uid")
