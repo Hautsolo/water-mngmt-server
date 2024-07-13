@@ -11,12 +11,12 @@ class PostSerializer(serializers.ModelSerializer):
   class Meta:
     model=Post
     fields = ('id', 'title', 'category', 'description', 'image_url', 'user', 'comment_count', 'likes', 'tags', 'user_id')
-    depth = 1
+    depth = 2
     
 class PostView(ViewSet):
     def retrieve(self, request, pk):
         try:
-            post = Post.objects.annotate(comment_count=Count('comments')).get(pk = pk)
+            post = Post.objects.annotate(comment_count=Count('comment')).get(pk = pk)
             serializer = PostSerializer(post)
             return Response(serializer.data)
         except Post.DoesNotExist as ex:
@@ -27,9 +27,9 @@ class PostView(ViewSet):
             user = request.query_params.get('uid', None)
             if user is not None:
                 user_id = User.objects.get(uid = user)
-                posts = Post.objects.filter(user = user_id).annotate(comment_count=Count('comments'))
+                posts = Post.objects.filter(user = user_id).annotate(comment_count=Count('comment'))
             else:
-                posts = Post.objects.annotate(comment_count = Count('comments')).all()
+                posts = Post.objects.annotate(comment_count = Count('comment')).all()
 
             serializer = PostSerializer(posts, many=True)
             return Response(serializer.data)
@@ -43,12 +43,12 @@ class PostView(ViewSet):
         post = Post.objects.create(
             user = user,
             category =  category,
-            likes = 0, 
             title = request.data["title"],
             image_url = request.data["image_url"],
             description = request.data["description"]
         )
         for tag_id in request.data["tags"]:
+            
             tag = Tag.objects.get(pk=tag_id)
             PostTag.objects.create(
                 post = post,
@@ -87,8 +87,8 @@ class PostView(ViewSet):
         return Response(None, status=status.HTTP_204_NO_CONTENT)
     
     # This action method gets all comments associated with a single post
-    @action(methods=['post'], detail=True)
-    def comment(self, request, pk):
+    @action(methods=['post'], detail=True, url_path='comments')
+    def comments(self, request, pk=None):
         try:
             post = self.get_object()
             comments = Comment.objects.filter(post_id=pk)
