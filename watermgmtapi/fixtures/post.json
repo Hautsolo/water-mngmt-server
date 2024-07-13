@@ -7,7 +7,9 @@
           "image_url": "test",
           "description": "What's happening?",
           "user_id": 1, 
-          "category": 1
+          "category": 1,
+          "like":"True",
+          "tag":"product"
         }
     },
     {
@@ -18,7 +20,9 @@
           "image_url": "test",
           "description": "This is great!",
           "user_id": 1,
-          "category": 2
+          "category": 2,
+          "like":"True",
+          "tag":"product"
         }
     }
   ]
