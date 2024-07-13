@@ -31,26 +31,27 @@ def check_user(request):
         return Response(data)
 
 
-@api_view(['POST'])
-def register_user(request):
-    '''Handles the creation of a new user for authentication
+# @api_view(['POST'])
+# def register_user(self, request):
+#     '''Handles the creation of a new user for authentication
 
-    Method arguments:
-      request -- The full HTTP request object
-    '''
+#     Method arguments:
+#       request -- The full HTTP request object
+#     '''
 
-    # Now save the user info in the watermgmtapi_user table
-    user = User.objects.create(
-        name=request.data['name'],
-        bio=request.data['bio']
-        uid=request.data['uid']
-    )
+#     # Now save the user info in the watermgmtapi_user table
+#     user = User.objects.create(
+#         name=request.data['name'],
+#         bio=request.data['bio']
+#         uid=request.data['uid']
+#     )
 
-    # Return the user info to the client
-    data = {
-        'id': user.id,
-        'name': user.name,
-        'bio': user.bio,
-        'uid': user.uid
-    }
-    return Response(data)
+#     # Return the user info to the client
+#     data = {
+#         'id': user.id,
+#         'name': user.name,
+#         'bio': user.bio,
+#         'uid': user.uid
+#     }
+#     return Response(data)
+

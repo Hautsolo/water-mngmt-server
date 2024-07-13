@@ -1,0 +1,16 @@
+[
+    {
+      "model": "watermgmtapi.category",
+      "pk": 1,
+      "fields": {
+        "label": "tips"
+      }
+    },
+    {
+      "model": "watermgmtapi.category",
+      "pk": 2,
+      "fields": {
+        "label": "Products"
+      }
+    }
+  ]

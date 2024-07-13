@@ -2,7 +2,7 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from watermgmtapi.models import Comment, User
+from watermgmtapi.models import Comment, User, Post
 
 
 class CommentView(ViewSet):
@@ -27,7 +27,12 @@ class CommentView(ViewSet):
         Returns:
             Response -- JSON serialized list of comments
         """
-        comments = Comment.objects.all()
+        post_id = request.query_params.get('post_id', None)
+        if post_id is not None:
+            comments = Comment.objects.filter(post_id=post_id)
+        else:
+            comments = Comment.objects.all()
+
         serializer = CommentSerializer(comments, many=True)
         return Response(serializer.data)
 
@@ -38,10 +43,12 @@ class CommentView(ViewSet):
             Response -- JSON serialized comment instance
         """
         user = User.objects.get(pk=request.data["userId"])
+        post = Post.objects.get(pk=request.data['post_id'])
 
         comment = Comment.objects.create(
-            content=request.data["content"],
-            user=user,
+            content = request.data["content"],
+            user = user,
+            post = post,
         )
         serializer = CommentSerializer(comment)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -53,11 +60,13 @@ class CommentView(ViewSet):
             Response -- Empty body with 204 status code
         """
         try:
-            user = User.objects.get(pk=request.data["userId"])
+            # user = User.objects.get(pk=request.data["userId"])
             comment = Comment.objects.get(pk=pk)
             comment.content = request.data["content"]
-            comment.user = user
-            return Response(None, status=status.HTTP_204_NO_CONTENT)
+            comment.save()
+            # comment.user = user
+            serializer = CommentSerializer(comment)
+            return Response(serializer.data, status=status.HTTP_200_OK)
         except comment.DoesNotExist as ex:
             return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
 
@@ -79,4 +88,5 @@ class CommentSerializer(serializers.ModelSerializer):
     """JSON serializer for comments"""
     class Meta:
         model = Comment
-        fields = ('id', 'content', 'user_id')
+        fields = ('id', 'content', 'user', 'post', 'created_on')
+        read_only_fields = ['created_on']
