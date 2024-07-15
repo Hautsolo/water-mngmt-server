@@ -6,5 +6,4 @@ from .comment import CommentView
 from .category import CategoryView
 from .tag import TagView
 # from .post_tag import PosttagView
-
 from .post import PostView
