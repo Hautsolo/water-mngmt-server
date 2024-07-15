@@ -13,6 +13,7 @@ class UserView(ViewSet):
         try:
             user = User.objects.get(pk=pk)
             serializer = UserSerializer(user)
+            return Response(serializer.data)
         except User.DoesNotExist as ex:
             return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
 
@@ -24,7 +25,12 @@ class UserView(ViewSet):
         return Response(serializer.data)
 
     def create(self, request):
-        """func to create user"""
+        """Handle POST operations
+
+        Returns:
+            Response -- JSON serialized user instance
+        """
+
         user = User.objects.create(
             name=request.data["name"],
             bio=request.data["bio"],
@@ -35,7 +41,11 @@ class UserView(ViewSet):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
     def update(self, request, pk):
-        """func to update user"""
+        """Handle PUT requests for a user
+
+        Returns:
+            Response -- Empty body with 204 status code
+        """
         try:
             user = User.objects.get(pk=pk)
             user.name = request.data["name"]
@@ -47,7 +57,11 @@ class UserView(ViewSet):
             return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
 
     def destroy(self, request, pk):
-        """func to del user"""
+        """Handle DELETE requests for a user
+
+        Returns:
+            Response -- Empty body with 204 status code
+        """
 
         try:
             user = User.objects.get(pk=pk)
@@ -55,6 +69,7 @@ class UserView(ViewSet):
             return Response(None, status=status.HTTP_204_NO_CONTENT)
         except User.DoesNotExist as ex:
             return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
+
 
 class UserSerializer(serializers.ModelSerializer):
     """JSON serializer for users"""
