@@ -8,7 +8,7 @@ from watermgmtapi.models import Category
 class CategoryView(ViewSet):
     """Water-mgmt categorys view"""
 
-    def retrieve(self, request, pk):
+    def retrieve(self, request, pk=None):
         """Handle GET requests for single category
 
         Returns:
