@@ -1,0 +1,10 @@
+[
+  {
+    "model": "watermgmtapi.postlikes",
+    "pk": 1,
+    "fields": {
+      "user_id": 2,
+      "post_id": 1
+  }
+  }
+]

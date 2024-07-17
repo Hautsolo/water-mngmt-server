@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from rest_framework import routers
 from django.conf.urls import include
-from watermgmtapi.views import UserView, check_user, CategoryView, CommentView, TagView, PostView, LikesView, PostLikeView
+from watermgmtapi.views import UserView, check_user, CategoryView, CommentView, TagView, PostView, LikesView
 
 router = routers.DefaultRouter(trailing_slash=False)
 
@@ -28,7 +28,7 @@ router.register(r'likes', LikesView, 'like')
 # router.register(r'posttags', PostTagView, 'posttag')
 router.register(r'posts', PostView, 'post')
 router.register(r'tags', TagView, 'tag')
-router.register(r'post_likes', PostLikeView, 'post_like')
+# router.register(r'post_likes', PostLikeView, 'post_like')
 
 
 urlpatterns = [

@@ -1,5 +1,5 @@
 from django.db import models
-from .post import Post
+from .posts import Post
 from .tag import Tag
 
 
