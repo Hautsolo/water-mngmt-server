@@ -3,7 +3,14 @@
       "model": "watermgmtapi.tag",
       "pk": 1,
       "fields": {
-          "label": 1
+          "label": "product"
+      }
+  },
+  {
+      "model": "watermgmtapi.tag",
+      "pk": 2,
+      "fields": {
+          "label": "tips"
       }
   }
 ]
