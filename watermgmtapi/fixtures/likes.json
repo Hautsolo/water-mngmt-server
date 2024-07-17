@@ -1,0 +1,16 @@
+[
+    {
+        "model": "watermgmtapi.like",
+        "pk": 1,
+        "fields": {
+            "label": 1
+        }
+    },
+    {
+        "model": "watermgmtapi.like",
+        "pk": 2,
+        "fields": {
+            "label": 0
+        }
+    }
+]

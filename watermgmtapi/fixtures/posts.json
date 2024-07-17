@@ -3,26 +3,27 @@
         "model": "watermgmtapi.post",
         "pk": 1,
         "fields": {
-          "title": "Hi",
-          "image_url": "test",
-          "description": "What's happening?",
-          "user_id": 1, 
-          "category": 1,
-          "like":"True",
-          "tag":"product"
+            "title": "Hi",
+            "image_url": "test",
+            "description": "waterpipe hack",
+            "user": 1, 
+            "category": 1,
+            "likes": [1],
+            "tags": [1]
         }
     },
     {
         "model": "watermgmtapi.post",
         "pk": 2,
         "fields": {
-          "title": "Howdy",
-          "image_url": "test",
-          "description": "This is great!",
-          "user_id": 1,
-          "category": 2,
-          "like":"True",
-          "tag":"product"
+            "title": "this great water saving product",
+            "image_url": "test",
+            "description": "This is great!",
+            "user": 1,
+            "category": 2,
+            "likes": [2],
+            "tags": [2]
         }
     }
   ]
+  
