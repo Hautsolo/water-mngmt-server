@@ -17,16 +17,15 @@ from django.contrib import admin
 from django.urls import path
 from rest_framework import routers
 from django.conf.urls import include
-from watermgmtapi.views import UserView, check_user, CategoryView, CommentView, TagView,PostView
+from watermgmtapi.views import UserView, check_user, CategoryView, CommentView, TagView, PostView
 
 router = routers.DefaultRouter(trailing_slash=False)
 
 router.register(r'users', UserView, 'user')
-router.register(r'categories', CategoryView, 'category')
+router.register(r'categorys', CategoryView, 'category')
 router.register(r'comments', CommentView, 'comment')
 # router.register(r'likes', LikeView, 'like')
 # router.register(r'posttags', PostTagView, 'posttag')
-# router.register(r'postcategorys', PostCategoryView, 'postcategory')
 router.register(r'posts', PostView, 'post')
 router.register(r'tags', TagView, 'tag')
 

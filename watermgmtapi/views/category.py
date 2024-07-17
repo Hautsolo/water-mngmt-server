@@ -31,45 +31,6 @@ class CategoryView(ViewSet):
         serializer = CategorySerializer(categorys, many=True, context={'request': request})
         return Response(serializer.data)
 
-    def create(self, request):
-        """Handle POST operations
-
-        Returns:
-            Response -- JSON serialized category instance
-        """
-        category = Category.objects.create(
-            label=request.data["label"],
-        )
-        serializer = CategorySerializer(category)
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
-
-    def update(self, request, pk):
-        """Handle PUT requests for a category
-
-        Returns:
-            Response -- Empty body with 204 status code
-        """
-        try:
-            category = Category.objects.get(pk=pk)
-            category.label = request.data["label"]
-            category.save()
-            return Response(None, status=status.HTTP_204_NO_CONTENT)
-        except Category.DoesNotExist as ex:
-            return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
-
-    def destroy(self, request, pk):
-        """Handle DELETE requests for a category
-
-        Returns:
-            Response -- Empty body with 204 status code
-        """
-        try:
-            category = Category.objects.get(pk=pk)
-            category.delete()
-            return Response(None, status=status.HTTP_204_NO_CONTENT)
-        except Category.DoesNotExist as ex:
-            return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
-
 
 class CategorySerializer(serializers.ModelSerializer):
     """JSON serializer for categorys"""

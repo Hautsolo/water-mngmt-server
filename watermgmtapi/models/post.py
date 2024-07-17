@@ -9,7 +9,7 @@ from django.utils import timezone
 class Post(models.Model):
 
     title = models.CharField(max_length=150)
-    image_url = models.CharField(max_length=150)
+    image = models.URLField(max_length=200)
     description = models.CharField(max_length=150)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
