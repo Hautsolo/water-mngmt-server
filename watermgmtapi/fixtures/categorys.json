@@ -1,16 +1,17 @@
 [
-  {
-      "model": "watermgmtapi.category",
-      "pk": 1,
-      "fields": {
-          "label": "home"
-      }
-  },
-  {
-      "model": "watermgmtapi.category",
-      "pk": 2,
-      "fields": {
-          "label": "work"
-      }
-  }
-]
+    {
+        "model": "watermgmtapi.category",
+        "pk": 1,
+        "fields": {
+            "label": "home"
+        }
+    },
+    {
+        "model": "watermgmtapi.category",
+        "pk": 2,
+        "fields": {
+            "label": "work"
+        }
+    }
+  ]
+  
