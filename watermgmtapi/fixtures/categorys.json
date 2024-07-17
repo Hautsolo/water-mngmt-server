@@ -1,26 +1,17 @@
 [
-  {
-      "model": "watermgmtapi.category",
-      "pk": 1,
-      "fields": {
-          "label": "Personal"
-      }
-  },
-
-  {
-      "model": "watermgmtapi.category",
-      "pk": 2,
-      "fields": {
-          "label": "Industrial"
-      }
-  },
-
-  {
-    "model": "watermgmtapi.category",
-    "pk": 3,
-    "fields": {
-        "label": "Municipal"
+    {
+        "model": "watermgmtapi.category",
+        "pk": 1,
+        "fields": {
+            "label": "home"
+        }
+    },
+    {
+        "model": "watermgmtapi.category",
+        "pk": 2,
+        "fields": {
+            "label": "work"
+        }
     }
-}
-
-]
+  ]
+  
