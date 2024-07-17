@@ -5,3 +5,4 @@ from .user import User
 from .post import Post
 from .category import Category
 from .post_tag import PostTag
+from .post_like import PostLike
