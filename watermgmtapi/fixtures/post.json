@@ -7,9 +7,7 @@
           "image_url": "test",
           "description": "waterpipe hack",
           "user": 1, 
-          "category": 1,
-          "likes": [1],
-          "tags": [1]
+          "category": 1
       }
   },
   {
@@ -20,9 +18,7 @@
           "image_url": "test",
           "description": "This is great!",
           "user": 1,
-          "category": 2,
-          "likes": [2],
-          "tags": [2]
+          "category": 2
       }
   }
 ]
