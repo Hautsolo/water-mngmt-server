@@ -15,7 +15,7 @@ class PostSerializer(serializers.ModelSerializer):
         model = Post
         fields = ('id', 'title', 'category', 'description', 'image_url',
                   'user', 'comment_count', 'tags', 'user_id')
-        depth = 2
+        depth = 1
 
 
 class PostView(ViewSet):
@@ -55,13 +55,13 @@ class PostView(ViewSet):
             image_url=request.data["image_url"],
             description=request.data["description"]
         )
-        for tag_id in request.data["tags"]:
+        # for tag_id in request.data["tags"]:
 
-            tag = Tag.objects.get(pk=tag_id)
-            PostTag.objects.create(
-                post=post,
-                tag=tag
-            )
+        #     tag = Tag.objects.get(pk=tag_id)
+        #     PostTag.objects.create(
+        #         post=post,
+        #         tag=tag
+        #     )
 
         serializer = PostSerializer(post)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
