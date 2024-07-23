@@ -12,3 +12,4 @@ SELECT name FROM sqlite_master WHERE type='table' AND name='watermgmtapi_postlik
 
 PRAGMA table_info(watermgmtapi_postlike);
 
+SELECT * FROM watermgmtapi_user WHERE id = 1;
