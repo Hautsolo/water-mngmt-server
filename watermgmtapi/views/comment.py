@@ -42,7 +42,7 @@ class CommentView(ViewSet):
         Returns:
             Response -- JSON serialized comment instance
         """
-        user = User.objects.get(pk=request.data["userId"])
+        user = User.objects.get(pk=request.data["user_id"])
         post = Post.objects.get(pk=request.data['post_id'])
 
         comment = Comment.objects.create(
