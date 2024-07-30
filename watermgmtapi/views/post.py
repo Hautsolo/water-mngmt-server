@@ -117,7 +117,7 @@ class PostView(ViewSet):
             comment = Comment.objects.create(
                 user=user,
                 post=post,
-                description=request.data["description"]
+                content=request.data["content"]
             )
             return Response({'message': 'Comment has been successfully added'}, status=status.HTTP_201_CREATED)
         except User.DoesNotExist:
