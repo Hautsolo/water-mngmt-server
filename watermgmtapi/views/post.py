@@ -22,7 +22,7 @@ class PostView(ViewSet):
     def retrieve(self, request, pk):
         try:
             post = Post.objects.annotate(
-                comment_count=Count('comment')).get(pk=pk)
+                comment_count=Count('comments')).get(pk=pk)
             serializer = PostSerializer(post)
             return Response(serializer.data)
         except Post.DoesNotExist as ex:
@@ -34,10 +34,10 @@ class PostView(ViewSet):
             if user is not None:
                 user_id = User.objects.get(uid=user)
                 posts = Post.objects.filter(user=user_id).annotate(
-                    comment_count=Count('comment'))
+                    comment_count=Count('comments'))
             else:
                 posts = Post.objects.annotate(
-                    comment_count=Count('comment')).all()
+                    comment_count=Count('comments')).all()
 
             serializer = PostSerializer(posts, many=True)
             return Response(serializer.data)
@@ -95,7 +95,7 @@ class PostView(ViewSet):
         return Response(None, status=status.HTTP_204_NO_CONTENT)
 
     # This action method gets all comments associated with a single post
-    @action(methods=['post'], detail=True, url_path='comments')
+    @action(methods=['get'], detail=True, url_path='comments')
     def comments(self, request, pk=None):
         try:
             post = self.get_object()
