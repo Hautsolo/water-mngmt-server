@@ -5,6 +5,6 @@ from .comment import CommentView
 from .like import LikesView
 from .category import CategoryView
 from .tag import TagView
-# from .post_tag import PosttagView
+from .post_tag import PostTagView
 from .post import PostView
 # from .post_likes import PostLikeView

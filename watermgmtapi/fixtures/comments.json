@@ -3,7 +3,7 @@
       "model": "watermgmtapi.comment",
       "pk": 1,
       "fields": {
-          "post": 1,
+          "post": 7,
           "content": "Nice!",
           "user": 1
       }

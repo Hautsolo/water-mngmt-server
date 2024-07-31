@@ -1,0 +1,10 @@
+[
+  {
+    "model": "watermgmtapi.posttag",
+    "pk": 1,
+    "fields": {
+      "post_id": 7,
+      "tag_id": 1
+  }
+  }
+]
