@@ -53,7 +53,6 @@ class PostView(ViewSet):
             description=request.data["description"]
         )
         for tag_id in request.data["tags"]:
-
             tag = Tag.objects.get(pk=tag_id)
             PostTag.objects.create(
                 post=post,
@@ -95,6 +94,20 @@ class PostView(ViewSet):
                 post=post,
                 tag=tag
             )
+            
+        new_tags = []
+        for tag in request.data["newTags"]:
+            new_tag = Tag.objects.create(
+                label=tag
+            )
+            new_tags.append(new_tag)
+        for tag in new_tags:
+            new_tag_2 = Tag.objects.get(pk=tag.id)
+            PostTag.objects.create(
+                post=post,
+                tag=new_tag_2
+            )
+
         serializer = PostSerializer(post)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
