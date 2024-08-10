@@ -10,14 +10,14 @@
         "model": "watermgmtapi.category",
         "pk": 2,
         "fields": {
-            "label": "business"
+            "label": "industrial"
         }
     },
     {
         "model": "watermgmtapi.category",
         "pk": 3,
         "fields": {
-            "label": "municiple"
+            "label": "municipal"
         }
     }
   ]
