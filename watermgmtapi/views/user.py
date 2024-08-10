@@ -11,7 +11,7 @@ class UserView(ViewSet):
     def retrieve(self, request, pk):
         """func to get single user"""
         try:
-            user = User.objects.get(pk=pk)
+            user = User.objects.get(uid=pk)
             serializer = UserSerializer(user)
             return Response(serializer.data)
         except User.DoesNotExist as ex:
